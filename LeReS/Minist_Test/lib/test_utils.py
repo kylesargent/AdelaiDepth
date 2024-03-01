@@ -154,11 +154,11 @@ def reconstruct_3D(depth, f):
         y = (v - cv) * depth / f
         z = depth
 
-    x = np.reshape(x, (width * height, 1)).astype(np.float)
-    y = np.reshape(y, (width * height, 1)).astype(np.float)
-    z = np.reshape(z, (width * height, 1)).astype(np.float)
+    x = np.reshape(x, (width * height, 1)).astype(np.float32)
+    y = np.reshape(y, (width * height, 1)).astype(np.float32)
+    z = np.reshape(z, (width * height, 1)).astype(np.float32)
     pcd = np.concatenate((x, y, z), axis=1)
-    pcd = pcd.astype(np.int)
+    pcd = pcd.astype(np.int32)
     return pcd
 
 def save_point_cloud(pcd, rgb, filename, binary=True):
